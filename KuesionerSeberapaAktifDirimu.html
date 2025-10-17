@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Quiz Seberapa Aktif Dirimu?</title>
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Fredoka+One&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffcc70, #ff5f6d);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  header {
+    background-color: #b30000;
+    color: gold;
+    padding: 20px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 26px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px #6b0000;
+  }
+
+  .container {
+    max-width: 700px;
+    background: #fff8f0;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  }
+
+  h2 {
+    color: #b30000;
+    font-family: 'Fredoka One', cursive;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 16px;
+    color: #444;
+  }
+
+  .question {
+    text-align: left;
+    margin-bottom: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .question h3 {
+    margin-top: 0;
+    color: #b30000;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  label {
+    background: #ffe6cc;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  label:hover {
+    background: #ffd699;
+  }
+
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+
+  button {
+    margin-top: 20px;
+    background: linear-gradient(90deg, #ffb347, #ffcc33);
+    color: #800000;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  button::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.5);
+    transform: skewX(-20deg);
+    transition: 0.5s;
+  }
+
+  button:hover::before {
+    left: 100%;
+  }
+
+  .result {
+    display: none;
+    margin-top: 30px;
+  }
+
+  .circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .motivasi {
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: 500;
+  }
+</style>
+</head>
+
+<body>
+<header>🎪 CAMPAIGN HKN FKM UNAIR 2025 🎪</header>
+
+<div class="container">
+  <h2>Isi kuis singkat ini untuk melihat skor keaktifanmu! 💪</h2>
+
+  <form id="quizForm">
+    <div class="question">
+      <h3>1️⃣ Berapa lama kamu biasanya duduk setiap hari?</h3>
+      <div class="options">
+        <label><input type="radio" name="q1" value="5">A. Lebih dari 10 jam</label>
+        <label><input type="radio" name="q1" value="10">B. 8–10 jam</label>
+        <label><input type="radio" name="q1" value="20">C. 5–7 jam</label>
+        <label><input type="radio" name="q1" value="30">D. 3–4 jam</label>
+        <label><input type="radio" name="q1" value="40">E. Kurang dari 3 jam</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>2️⃣ Seberapa sering kamu berolahraga minimal 30 menit?</h3>
+      <div class="options">
+        <label><input type="radio" name="q2" value="5">A. Tidak pernah</label>
+        <label><input type="radio" name="q2" value="15">B. 1 kali seminggu</label>
+        <label><input type="radio" name="q2" value="25">C. 2–3 kali seminggu</label>
+        <label><input type="radio" name="q2" value="35">D. 4–5 kali seminggu</label>
+        <label><input type="radio" name="q2" value="45">E. Setiap hari</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>3️⃣ Ketika pergi ke tempat yang dekat...</h3>
+      <div class="options">
+        <label><input type="radio" name="q3" value="5">A. Selalu naik kendaraan</label>
+        <label><input type="radio" name="q3" value="25">B. Kadang jalan, kadang naik kendaraan</label>
+        <label><input type="radio" name="q3" value="45">C. Selalu jalan kaki atau naik sepeda</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>4️⃣ Berapa lama kamu menggunakan HP/komputer/TV per hari?</h3>
+      <div class="options">
+        <label><input type="radio" name="q4" value="5">A. >6 jam</label>
+        <label><input type="radio" name="q4" value="15">B. 4–6 jam</label>
+        <label><input type="radio" name="q4" value="25">C. 2–3 jam</label>
+        <label><input type="radio" name="q4" value="35">D. 1–2 jam</label>
+        <label><input type="radio" name="q4" value="45">E. <1 jam</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>5️⃣ Saat bekerja atau belajar, kamu biasanya...</h3>
+      <div class="options">
+        <label><input type="radio" name="q5" value="5">A. Duduk terus dari awal sampai akhir</label>
+        <label><input type="radio" name="q5" value="25">B. Duduk lama tapi kadang berdiri sebentar</label>
+        <label><input type="radio" name="q5" value="45">C. Sering berdiri, jalan, atau stretching</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>6️⃣ Saat waktu luang, kamu lebih suka...</h3>
+      <div class="options">
+        <label><input type="radio" name="q6" value="5">A. Rebahan, nonton, main HP</label>
+        <label><input type="radio" name="q6" value="25">B. Campur: kadang aktif, kadang santai</label>
+        <label><input type="radio" name="q6" value="45">C. Aktivitas fisik (jalan-jalan, olahraga)</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>7️⃣ Apakah kamu melakukan peregangan setelah duduk lama?</h3>
+      <div class="options">
+        <label><input type="radio" name="q7" value="5">A. Tidak pernah</label>
+        <label><input type="radio" name="q7" value="25">B. Kadang kalau pegal</label>
+        <label><input type="radio" name="q7" value="45">C. Hampir selalu</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <h3>8️⃣ Berapa langkah kira-kira kamu capai per hari?</h3>
+      <div class="options">
+        <label><input type="radio" name="q8" value="5">A. <5.000 langkah</label>
+        <label><input type="radio" name="q8" value="20">B. 5.000–6.999 langkah</label>
+        <label><input type="radio" name="q8" value="35">C. 7.000–9.999 langkah</label>
+        <label><input type="radio" name="q8" value="50">D. ≥10.000 langkah</label>
+      </div>
+    </div>
+
+    <button type="button" onclick="showResult()">✨ Lihat Hasil ✨</button>
+  </form>
+
+  <div class="result" id="resultBox">
+    <div class="circle" id="scoreCircle">0%</div>
+    <div class="motivasi" id="motivasiText"></div>
+  </div>
+</div>
+
+<script>
+  function showResult() {
+    const form = document.forms['quizForm'];
+    let total = 0, count = 0;
+
+    for (let i = 1; i <= 8; i++) {
+      const q = form['q' + i];
+      const selected = [...q].find(r => r.checked);
+      if (selected) {
+        total += parseInt(selected.value);
+        count++;
+      }
+    }
+
+    if (count < 8) {
+      alert("Isi semua pertanyaannya dulu ya! 😊");
+      return;
+    }
+
+    const score = Math.round(total / (8 * 50) * 100); 
+    const circle = document.getElementById('scoreCircle');
+    const motivasi = document.getElementById('motivasiText');
+    const resultBox = document.getElementById('resultBox');
+
+    let warna = "#ff4d4d";
+    let pesan = "Masih sangat sedentari 😴 Yuk mulai bergerak sedikit demi sedikit!";
+    if (score > 70) {
+      warna = "#00b300";
+      pesan = "Aktif banget 💪🔥 Pertahankan gaya hidup sehatmu!";
+    } else if (score > 40) {
+      warna = "#ffcc00";
+      pesan = "Cukup aktif ⚖️ tapi masih bisa ditingkatkan!";
+    }
+
+    circle.style.background = warna;
+    circle.textContent = score + "%";
+    motivasi.textContent = pesan;
+
+    resultBox.style.display = "block";
+    resultBox.scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+</body>
+</html>
